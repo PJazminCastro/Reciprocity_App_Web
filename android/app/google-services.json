@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "943634336292",
+    "project_id": "reciprocity-151c1",
+    "storage_bucket": "reciprocity-151c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943634336292:android:b993e4f42cea3d7027a6b1",
+        "android_client_info": {
+          "package_name": "com.example.reciprocity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnHd4prIlBdlCA1bGk2EUhgNPQojOaQ4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
