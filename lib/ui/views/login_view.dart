@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:reciprocity/ui/views/Pagina1.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
   static String id = 'login_view';
 
-  final Map<String, String> userCredentials = {
-    'usuario1@example.com': 'contraseña1',
-    'usuario2@example.com': 'contraseña2',
-  };
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void _login(BuildContext context, String email, String password) {
-    if (userCredentials.containsKey(email) && userCredentials[email] == password) {
+  Future<void> _login(BuildContext context, String email, String password) async {
+    try {
+      final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Inicio de sesión exitoso'),
           duration: Duration(seconds: 2),
         ),
       );
+
       Navigator.pushNamed(context, Pagina1.id);
-    } else {
-      // Si las credenciales son incorrectas, muestra un mensaje de error
+    } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Credenciales incorrectas'),
+          content: Text('Error al iniciar sesión: $e'),
           duration: Duration(seconds: 2),
         ),
       );

@@ -17,17 +17,29 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -40,49 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAalf9MMkHej-SBMkXT3hOLH7DtrRgPRpE',
-    appId: '1:943634336292:web:2bb8fc389ca9291b27a6b1',
-    messagingSenderId: '943634336292',
-    projectId: 'reciprocity-151c1',
-    authDomain: 'reciprocity-151c1.firebaseapp.com',
-    storageBucket: 'reciprocity-151c1.appspot.com',
-    measurementId: 'G-7NJ9DN492X',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBnHd4prIlBdlCA1bGk2EUhgNPQojOaQ4I',
     appId: '1:943634336292:android:b993e4f42cea3d7027a6b1',
     messagingSenderId: '943634336292',
     projectId: 'reciprocity-151c1',
     storageBucket: 'reciprocity-151c1.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAr3lNPU8Yq8j7UpNimuNPSo0nhboHdbLU',
-    appId: '1:943634336292:ios:0a4e68413d6141b027a6b1',
-    messagingSenderId: '943634336292',
-    projectId: 'reciprocity-151c1',
-    storageBucket: 'reciprocity-151c1.appspot.com',
-    iosBundleId: 'com.example.reciprocity',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAr3lNPU8Yq8j7UpNimuNPSo0nhboHdbLU',
-    appId: '1:943634336292:ios:0a4e68413d6141b027a6b1',
-    messagingSenderId: '943634336292',
-    projectId: 'reciprocity-151c1',
-    storageBucket: 'reciprocity-151c1.appspot.com',
-    iosBundleId: 'com.example.reciprocity',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAalf9MMkHej-SBMkXT3hOLH7DtrRgPRpE',
-    appId: '1:943634336292:web:7a35b420cbf1ec3a27a6b1',
-    messagingSenderId: '943634336292',
-    projectId: 'reciprocity-151c1',
-    authDomain: 'reciprocity-151c1.firebaseapp.com',
-    storageBucket: 'reciprocity-151c1.appspot.com',
-    measurementId: 'G-CY45KV54DZ',
   );
 }
